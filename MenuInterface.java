@@ -22,20 +22,12 @@ public class MenuInterface
 
 		       if(shapeType.equals("c"))
 		       {
-
 				break;
 		       }
-		       //might be completely unnecessary 
-		       try {
-		            String test = shapeType + "2";
-		       } catch (Exception e) {
-			    print("Please type a String");
-			    continue;
-		       }
+		       
 
 		       selectType(shapeType); 
 
-		       sharedBuff.drawSprites();
 		}
 
 		print("Thank you!");
@@ -53,97 +45,86 @@ public class MenuInterface
 
 	
 	private void selectType(String type)
-	{
-	    Scanner XYReciever = new Scanner(System.in);
+	{ 
+            int XX = 0;
+	    int YY = 0;
+	    int RR = 0;
+	    char reply;
+	    boolean fill;
+            
+	    print("---------------------------");
 
 		switch(type.toLowerCase())
 		{
 			case "square":
-			     print("------------------------");
-			     print("Provide the Length");
-		             
-			     System.out.print("X: ");
-			     int x = XYReciever.nextInt();
-			     print("Provide the Height");
-			     System.out.print("Y: ");
-			     int y = XYReciever.nextInt();
-
-			     print("Would you like to fill in the shape? type y/n");
-			     
-			     char reply = XYReciever.nextChar();
-			     boolean fill = false;
-			     if(reply == 'y')
-			     {
-			     	fill = true;
-			     }
-				
-		             spriteFactory.clear();
-			     spriteFactory.setWidth(x);
-			     spriteFactory.setHeight(y);
-
-			     sharedBuff.addSprite(spriteFactory.produceSprite(type.toLowerCase(), fill));
-
-
-
+			     XX = getDimension("length");
+			     YY = getDimension("height");
 			break;
 			case "triangle":
-			     
-			     print("Provide the Height");
-			     System.out.print("Y: ");
-			     int y = XYReciever.nextInt();
-
-			     print("Would you like to fill in the shape? type y/n");
-			     
-			     char reply = XYReciever.nextChar();
-			     boolean fill = false;
-			     if(reply == 'y')
-			     {
-			     	fill = true;
-			     }
-				
-		             spriteFactory.clear();
-			   
-			     spriteFactory.setHeight(y);
-
-			     sharedBuff.addSprite(spriteFactory.produceSprite(type.toLowerCase(), fill));
-
+			     YY = getDimension("height");			
 			break;
 			case "circle":
-			     print("Provide the Radius");
-			     System.out.print("R: ");
-			     int r = XYReciever.nextInt();
-
-			     print("Would you like to fill in the shape? type y/n");
-			     
-			     char reply = XYReciever.nextChar();
-			     boolean fill = false;
-			     if(reply == 'y')
-			     {
-			     	fill = true;
-			     }
-				
-		             spriteFactory.clear();
-			   
-			     spriteFactory.setRadius(r);
-
-			     sharedBuff.addSprite(spriteFactory.produceSprite(type.toLowerCase(), fill));
-			
+			     RR = getDimension("radius"); 						
 			break;
-			
 			case "done":
-				return;
-			break;
-
+			      sharedBuff.drawSprites();
+			      return;
+			
 			default:
 			      print("Not a valid option");
+                              return;
+			
 
-			break;
 
+		}     
+			     fill = getFill();
+			     this.spriteFactory.clear();
+			     this.spriteFactory.setWidth(XX);
+			     this.spriteFactory.setHeight(YY);
+			     this.spriteFactory.setRadius(RR);
 
-		}
-
+			     this.sharedBuff.addSprite(spriteFactory.produceSprite(type.toLowerCase(), fill));
 	}
-	
+
+
+
+
+ 	private boolean getFill()
+	{
+		print("Would you like to fill in the shape? type y/n");
+
+	        boolean decision = false;
+		char yesNo = s.next().charAt(0);
+		if(yesNo == 'y')
+		{
+			decision = true;
+		}
+		return decision;
+	}
+
+	private int getDimension(String type)
+	{
+		char wordType = 'N';
+		if(type.equals("radius"))
+		{
+			wordType = 'R';
+		} else if(type.equals("height"))
+		{
+			wordType = 'Y';
+		} else if(type.equals("length"))
+		{
+			wordType = 'X';
+		}
+		
+          	print("Please provide a " + type);
+		System.out.print(wordType +": ");
+		int value = s.nextInt();
+
+		return value;
+		
+	}
+
+
 	private void printIntro()
 	{
 		print("Welcome to the Drawing Shapes Interface \n \t Choose between the three shape options and type DONE to draw all on screen at once (type character C to quit");

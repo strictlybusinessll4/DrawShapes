@@ -9,7 +9,7 @@ public class CircleSprite extends Sprite
 	}
 
 
-	public void createSquare(boolean FILL)
+	public void createCircle(boolean FILL)
 	{
 
 

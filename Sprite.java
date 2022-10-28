@@ -1,8 +1,9 @@
 public class Sprite 
 {
-	protected final String[] rows;
+	protected String[] rows;
 	protected int y;
 	protected int x;
+	
 	
 	
 	//Taken from class material

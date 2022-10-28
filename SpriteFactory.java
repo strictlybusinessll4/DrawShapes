@@ -19,25 +19,21 @@ public class SpriteFactory implements ISpriteFactory
 			
 				return new SquareSprite(width, height, Fill);
 
-			break;
+			
 
 			case "circle":
 
 				return new CircleSprite(radius, Fill);
 
-			break;
+			
 
 			case "triangle":
 			
 				return new TriangleSprite(height, Fill);
-
-			break;
-
-			default:
-			//DefaultParameters
-				return new SquareSprite(0,0,Fill);
+				
 
 		}
+		return new SquareSprite(0,0,Fill);
 	}
 
 	public void setHeight(int y)
@@ -53,7 +49,7 @@ public class SpriteFactory implements ISpriteFactory
 		this.radius = r;
 	}
 
-	public void clearSet()
+	public void clear()
 	{
 		this.height = 0;
 		this.width = 0;

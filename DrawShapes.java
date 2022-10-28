@@ -1,12 +1,10 @@
 public class DrawShapes
 {
-	private final MenuInterface menu;
-	private ScreenInit screenBuff;
 	
 	public static void main(String[] args)
 	{
-		screenBuff = new screenBuff();
-		menu = new MenuInterface(screenBuff);
+		ScreenInit screenBuff = new ScreenInit(50, 50);
+		MenuInterface menu = new MenuInterface(screenBuff);
 
 		
 

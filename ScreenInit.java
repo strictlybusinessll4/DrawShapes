@@ -1,3 +1,5 @@
+import java.util.Deque;
+import java.util.LinkedList;
 public class ScreenInit
 {
 	private Deque<Sprite> spriteQueue = new LinkedList<Sprite>();
@@ -9,7 +11,7 @@ public class ScreenInit
 		this.height = h;
 		this.width = w;
 
-		rows = new String[height]
+		rows = new String[height];
 
 		for(int i = 0; i < height; i++)
 		{
