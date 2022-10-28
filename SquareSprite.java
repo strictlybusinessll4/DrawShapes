@@ -7,6 +7,7 @@ public class SquareSprite extends Sprite
 	{
 		this.dimensionX = x;
 	 	this.dimensionY = y;
+		this.rows = new String[y];
 		createSquare(Fill);
 	}
 
@@ -14,18 +15,27 @@ public class SquareSprite extends Sprite
 
 
 	public void createSquare(boolean FILL)
-	{
-		if(FILL)
-		{
-			//do something here
-		}
-		
+	{	
 		for(int i = 0; i < dimensionY; i++ )
 		{
+		char[] row = new char[this.dimensionX];
+		
 			for(int k = 0; k < dimensionX; k++)
 			{
-				//something;
+				if(i==0 || i==dimensionY || k == 0 || k == dimensionX)
+				{
+				   row[k] = '*';
+				} 
+				else if(FILL)
+				{
+				if(i >= 0 && i <= dimensionY && k>=0 && k<= dimensionX)
+				   row[k] = '*';
+				} else {
+				   row[k] = ' ';
+				}
+
 			}
+		this.rows[i] = String.valueOf(row);
 
 		}
 

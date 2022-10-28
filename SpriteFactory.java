@@ -11,26 +11,30 @@ public class SpriteFactory implements ISpriteFactory
 		this.radius = 0;
 	}
 
-	public Sprite produceSprite(String Type, boolean Fill)
+	public Sprite produceSprite(String Type, boolean Fill, int[] Coords)
 	{
 		switch (Type)
 		{
 			case "square":
-			
-				return new SquareSprite(width, height, Fill);
+				
+				Sprite square = new SquareSprite(width, height, Fill);
+				square.setPosition(Coords[0], Coords[1]);
+				return square;
 
 			
 
 			case "circle":
 
-				return new CircleSprite(radius, Fill);
-
+				Sprite circle = new CircleSprite(radius, Fill);
+				circle.setPosition(Coords[0], Coords[1]);
+				return circle;
 			
 
 			case "triangle":
 			
-				return new TriangleSprite(height, Fill);
-				
+				Sprite triangle = new TriangleSprite(height, Fill);
+				triangle.setPosition(Coords[0], Coords[1]);
+				return triangle;
 
 		}
 		return new SquareSprite(0,0,Fill);

@@ -76,18 +76,34 @@ public class MenuInterface
 			
 
 
-		}     
+		}    
+			     int[] Coordposition = getPosition();
 			     fill = getFill();
 			     this.spriteFactory.clear();
 			     this.spriteFactory.setWidth(XX);
 			     this.spriteFactory.setHeight(YY);
 			     this.spriteFactory.setRadius(RR);
 
-			     this.sharedBuff.addSprite(spriteFactory.produceSprite(type.toLowerCase(), fill));
+			     this.sharedBuff.addSprite(spriteFactory.produceSprite(type.toLowerCase(), fill, Coordposition));
+			     print("Sprite added");
+			     print("---------------------------");
 	}
 
 
+        private int[] getPosition()
+	{
+		print("Where would like to draw it on the map? (Max: 100,100)");
+		System.out.print("xCoord: ");
+		int valueX = s.nextInt();
+		print("");
+		System.out.print("yCoord: ");
+		int valueY = s.nextInt();
 
+		int[] coords = {valueX, valueY};
+
+		return coords;
+
+	}
 
  	private boolean getFill()
 	{

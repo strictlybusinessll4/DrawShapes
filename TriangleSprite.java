@@ -11,7 +11,7 @@ public class TriangleSprite extends Sprite
 
 	public void createTriangle(boolean FILL)
 	{
-
+		
 
 	}
 

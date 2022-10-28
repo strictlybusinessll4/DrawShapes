@@ -23,8 +23,9 @@ public class Sprite
 		}
 
 	}
-	
-	public void setPostion(int x, int y)
+
+	//do not forget about this
+	public void setPosition(int x, int y)
 	{
 		this.x = x;
 		this.y = y;
