@@ -22,7 +22,7 @@ public class SquareSprite extends Sprite
 		
 			for(int k = 0; k < dimensionX; k++)
 			{
-				if(i==0 || i==dimensionY || k == 0 || k == dimensionX)
+				if(i==0 || i==dimensionY-1 || k == 0 || k == dimensionX-1)
 				{
 				   row[k] = '*';
 				} 

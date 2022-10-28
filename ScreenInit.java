@@ -15,9 +15,10 @@ public class ScreenInit
 
 		for(int i = 0; i < height; i++)
 		{
+			rows[i] = " ";	
 			for(int j = 0; j < width; j++)
 			{
-				rows[i] += ' ';
+				rows[i] += " ";
 			}
 		}
 
@@ -69,6 +70,14 @@ public class ScreenInit
 
 	}
 
+	public int getMaxX()
+	{
+		return width;
+	}
+	public int getMaxY()
+	{
+		return height;
+	}
 
 
 	

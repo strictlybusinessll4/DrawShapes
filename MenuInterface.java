@@ -38,7 +38,9 @@ public class MenuInterface
         
 	private String getOption()
 	{
+		System.out.print("Shape: ");
 		String type = s.next();
+		print("");
 		return type;
 	}
 
@@ -143,7 +145,10 @@ public class MenuInterface
 
 	private void printIntro()
 	{
-		print("Welcome to the Drawing Shapes Interface \n \t Choose between the three shape options and type DONE to draw all on screen at once (type character C to quit");
+		print("Welcome to the Drawing Shapes Interface \n \t" +
+		"Currently the Size of buffer is set to X: " + sharedBuff.getMaxX() + " and Y: " + sharedBuff.getMaxY() +
+		"\n \t Choose between the three shape options and type DONE to draw" +
+		"all on screen at once (type character C to quit");
 		print("\t\t Square");
 		print("\t\t Circle");
 		print("\t\t Triangle");
