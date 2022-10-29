@@ -4,7 +4,7 @@ public class CircleSprite extends Sprite
 
 	public CircleSprite(int r, boolean Fill)
 	{
-		this.radius = r;
+		this.radius = r/2;
         	this.rows = new String[this.radius*2 + 1];
 		createCircle(Fill);
 	}

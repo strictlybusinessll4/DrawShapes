@@ -62,14 +62,20 @@ public class MenuInterface
 
 		switch(type.toLowerCase())
 		{
+			case "1":
 			case "square":
+			     type = "square";
 			     XX = getDimension("length");
 			     YY = getDimension("height");
 			break;
+			case "3":
 			case "triangle":
+			     type = "triangle";
 			     YY = getDimension("height");			
 			break;
+			case "2":
 			case "circle":
+			     type = "circle";
 			     RR = getDimension("radius"); 						
 			break;
 			case "clean":
