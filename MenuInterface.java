@@ -5,6 +5,8 @@ public class MenuInterface
 	private ISpriteFactory spriteFactory;
 	private String shapeType;
 	private ScreenInit sharedBuff;
+	private int maxDimensionX;
+	private int maxDimensionY;
 
 
 	public MenuInterface(ScreenInit sharedBuff)
@@ -12,7 +14,9 @@ public class MenuInterface
 		this.sharedBuff = sharedBuff;
 		this.spriteFactory = new SpriteFactory();
 		this.s = new Scanner(System.in);
-
+		this.maxDimensionX = sharedBuff.getMaxX();
+		this.maxDimensionY = sharedBuff.getMaxY();
+		
 		printIntro();
 
 		while(true)
@@ -68,7 +72,12 @@ public class MenuInterface
 			case "circle":
 			     RR = getDimension("radius"); 						
 			break;
-			case "done":
+			case "clean":
+		 	     sharedBuff.clear();
+			      print("Board has been cleared");
+			      return;
+
+			case "draw":
 			      sharedBuff.drawSprites();
 			      return;
 			
@@ -94,7 +103,7 @@ public class MenuInterface
 
         private int[] getPosition()
 	{
-		print("Where would like to draw it on the map? (Max: 100,100)");
+		print("Where would like to draw it on the map? (Max: "+ maxDimensionX +", " + maxDimensionY+ ")");
 		System.out.print("xCoord: ");
 		int valueX = s.nextInt();
 		print("");
@@ -146,12 +155,13 @@ public class MenuInterface
 	private void printIntro()
 	{
 		print("Welcome to the Drawing Shapes Interface \n \t" +
-		"Currently the Size of buffer is set to X: " + sharedBuff.getMaxX() + " and Y: " + sharedBuff.getMaxY() +
-		"\n \t Choose between the three shape options and type DONE to draw" +
-		"all on screen at once (type character C to quit");
-		print("\t\t Square");
-		print("\t\t Circle");
-		print("\t\t Triangle");
+		"Currently the Size of buffer is set to X: " + maxDimensionX + " and Y: " + maxDimensionY +
+		"\n \t Choose between the three shape options and type DRAW to draw" +
+		"\n \t all the shapes on screen at once. " +
+		"\n \tYou can also clean the board by typing CLEAN (type character C to quit)");
+		print("\t\t 1. Square");
+		print("\t\t 2. Circle");
+		print("\t\t 3. Triangle");
 
 	}
 

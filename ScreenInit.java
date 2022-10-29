@@ -12,16 +12,7 @@ public class ScreenInit
 		this.width = w;
 
 		rows = new String[height];
-
-		for(int i = 0; i < height; i++)
-		{
-			rows[i] = " ";	
-			for(int j = 0; j < width; j++)
-			{
-				rows[i] += " ";
-			}
-		}
-
+		clear();
 	}
 
 	public void addSprite(Sprite sprite)
@@ -68,6 +59,19 @@ public class ScreenInit
 
 		}
 
+	}
+
+	public void clear()
+	{
+		for(int i = 0; i < height; i++)
+		{
+			rows[i] = " ";	
+			for(int j = 0; j < width; j++)
+			{
+				rows[i] += " ";
+			}
+		}
+		spriteQueue.clear();
 	}
 
 	public int getMaxX()
